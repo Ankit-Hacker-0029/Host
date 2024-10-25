@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+        .container {
+            text-align: center;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        input[type="text"] {
+            padding: 10px;
+            margin: 10px 0;
+            width: 100%;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Welcome!</h2>
+    <p>Please enter your name to continue:</p>
+    <input type="text" id="nameInput" placeholder="Enter your name">
+    <button onclick="validateName()">Login</button>
+    <p id="message" style="color: red;"></p>
+</div>
+
+<script>
+    function validateName() {
+        const name = document.getElementById("nameInput").value.trim();
+        if (name.toLowerCase() === "ankit") {
+            window.location.href = "https://netmirror.io";
+        } else {
+            document.getElementById("message").textContent = "Access Denied! Only Ankit is allowed.";
+        }
+    }
+</script>
+
+</body>
+</html>
