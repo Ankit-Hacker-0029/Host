@@ -37,6 +37,9 @@
             max-width: 350px;
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
             transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
         #accessForm:hover {
             transform: scale(1.05);
@@ -122,6 +125,9 @@
             left: 50%;
             transform: translate(-50%, -50%);
             z-index: 10;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
         #optionsPopup h2 {
             margin-bottom: 10px;
@@ -159,6 +165,21 @@
             from { opacity: 0; }
             to { opacity: 1; }
         }
+        /* New styles for close button */
+        .close-button {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: none;
+            border: none;
+            font-size: 1.5em;
+            color: #333;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+        .close-button:hover {
+            color: #0056b3;
+        }
     </style>
     <script>
         function checkAccess() {
@@ -187,11 +208,16 @@
                 document.getElementById(nextId).focus();
             }
         }
+
+        function closePopup() {
+            document.getElementById("optionsPopup").style.display = "none";
+            document.getElementById("overlay").style.display = "none";
+        }
     </script>
 </head>
 <body>
     <h1>Welcome to My Exclusive Portal</h1>
-    <h2>Ankit Bishnoi<h2>
+    <h2>Ankit Bishnoi</h2>
     <div id="accessForm">
         <input type="text" id="name" placeholder="Enter Your Name" onkeypress="handleKeyPress(event, 'age')" required>
         <input type="number" id="age" placeholder="Enter Your Age" onkeypress="handleKeyPress(event, 'submitButton')" required>
@@ -205,6 +231,7 @@
 
     <div id="overlay"></div>
     <div id="optionsPopup">
+        <button class="close-button" onclick="closePopup()">&times;</button>
         <h2>Choose an Option</h2>
         <p>Please select one of the options below to proceed:</p>
         <button onclick="redirect('https://iosmirror.cc')">Option 1: Redirect to Netflix</button>
