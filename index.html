@@ -1,3 +1,5 @@
+Created By [ MR. Ankit ]
+This is Beta Version 
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,265 +7,88 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Exclusive Access Portal</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         body {
             font-family: 'Poppins', sans-serif;
-            background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFmU4J_H7U3VY9GTb_ihas5AUXl_LD8zI63fPJ8J5byHhswXfeQ1PBo2IE&s=10"); 
-            background-size: cover;
-            background-position: center;
+            background: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFmU4J_H7U3VY9GTb_ihas5AUXl_LD8zI63fPJ8J5byHhswXfeQ1PBo2IE&s=10") center/cover;
             color: #EEE;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-            text-align: center;
-            overflow: hidden;
+            margin: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh; text-align: center;
         }
-        h1 {
-            font-size: 2.5em;
-            color: #EEE;
-            margin-bottom: 20px;
-            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
-        }
+        h1 { font-size: 2.5em; margin-bottom: 20px; text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7); }
         #accessForm {
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 12px;
-            padding: 30px;
-            width: 90%;
-            max-width: 350px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
-            transition: transform 0.3s, box-shadow 0.3s;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin: 0 10px; /* Ensure space on the sides */
+            background: rgba(255, 255, 255, 0.2); border-radius: 12px; padding: 30px; width: 90%; max-width: 350px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5); transition: transform 0.3s; display: flex; flex-direction: column; align-items: center;
         }
-        #accessForm:hover {
-            transform: scale(1.05);
-            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.7);
-        }
-        input {
-            padding: 12px;
-            margin: 10px 0;
-            width: 100%;
-            border: 2px solid #1A73E8;
-            border-radius: 5px;
-            outline: none;
-            transition: box-shadow 0.3s, border-color 0.3s;
-        }
-        input:focus {
-            box-shadow: 0 0 8px rgba(26, 115, 232, 0.6);
-            border-color: #0056b3;
-        }
+        #accessForm:hover { transform: scale(1.05); }
+        input { padding: 12px; margin: 10px 0; width: 100%; border: 2px solid #1A73E8; border-radius: 5px; outline: none; }
+        input:focus { box-shadow: 0 0 8px rgba(26, 115, 232, 0.6); border-color: #0056b3; }
         button {
-            background: linear-gradient(135deg, #1A73E8, #0056b3);
-            color: #FFF;
-            padding: 12px;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            width: 100%;
-            transition: background-color 0.3s, transform 0.3s;
+            background: linear-gradient(135deg, #1A73E8, #0056b3); color: #FFF; padding: 12px; border: none; border-radius: 8px; cursor: pointer; width: 100%; 
+            transition: background-color 0.3s;
         }
-        button:hover {
-            background: linear-gradient(135deg, #004080, #002a5c);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(0, 86, 179, 0.4);
-        }
-        #accessDenied, #accessGranted {
-            display: none;
-            font-weight: bold;
-            margin-top: 10px;
-            animation: fadeIn 0.5s ease;
-        }
-        #accessDenied { color: red; }
-        #accessGranted { color: green; }
-        #mainContent, #optionsPopup {
-            display: none;
-            margin-top: 20px;
-        }
-        .social-links {
-            display: flex;
-            gap: 10px;
-            font-size: 1.2em;
-            margin-top: 30px;
-            justify-content: center;
-        }
-        .social-links a {
-            color: #1A73E8;
-            text-decoration: none;
-            transition: color 0.3s, transform 0.3s;
-            padding: 5px;
-        }
-        .social-links a:hover {
-            color: #0056b3;
-            transform: scale(1.1);
-        }
-        .footer {
-            margin-top: 30px;
-            font-size: 0.8em;
-            color: #EEE;
-        }
-        @media (max-width: 400px) {
-            #accessForm {
-                padding: 20px;
-                max-width: 90%;
-            }
-        }
-        #optionsPopup {
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: 12px;
-            padding: 20px;
-            width: 90%;
-            max-width: 350px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
-            text-align: center;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 10;
-            display: none; /* Ensure this is initially hidden */
-            flex-direction: column;
-            align-items: center;
-        }
-        #optionsPopup h2 {
-            margin-bottom: 10px;
-        }
-        #optionsPopup p {
-            margin-bottom: 20px;
-            font-size: 1em;
-            color: #333;
-        }
-        #optionsPopup button {
-            margin: 10px 0;
-            width: 80%;
-            background: linear-gradient(135deg, #1A73E8, #0056b3);
-            color: #FFF;
-            border: none;
-            border-radius: 8px;
-            padding: 10px;
-            transition: background-color 0.3s, transform 0.3s;
-        }
-        #optionsPopup button:hover {
-            background: linear-gradient(135deg, #004080, #002a5c);
-            transform: translateY(-2px);
-        }
-        #overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.6);
-            display: none; /* Ensure this is initially hidden */
-            z-index: 5;
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        /* New styles for close button */
-        .close-button {
-            position: absolute;
-            top: 5px; /* Slightly less space for impact */
-            left: 5px;
-            background: red;
-            border: none;
-            font-size: 0.9em;
-            color: #FFF;
-            cursor: pointer;
-            width: 25px;
-            height: 25px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .close-button:hover {
-            background: darkred;
-        }
+        button:hover { background: linear-gradient(135deg, #004080, #002a5c); transform: translateY(-2px); }
+        #accessDenied, #accessGranted, #mainContent, #optionsPopup { display: none; }
+        #accessDenied { color: red; } #accessGranted { color: green; }
+        .social-links { display: flex; gap: 10px; font-size: 1.2em; margin-top: 30px; }
+        .social-links a { color: #1A73E8; text-decoration: none; transition: color 0.3s; }
+        .footer { margin-top: 30px; font-size: 0.8em; }
+        @media (max-width: 400px) { #accessForm { padding: 20px; } }
+        #optionsPopup { background: rgba(255, 255, 255, 0.9); border-radius: 12px; padding: 20px; width: 90%; max-width: 350px; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 10; display: none; }
+        .close-button { position: absolute; top: 5px; left: 5px; background: red; color: #FFF; cursor: pointer; width: 25px; height: 25px; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
     </style>
     <script>
         function checkAccess() {
-            const name = document.getElementById("name").value.trim();
-            const age = document.getElementById("age").value.trim();
-
+            const name = document.getElementById("name").value.trim(), age = document.getElementById("age").value.trim();
             if (name && age) {
+                const ageNum = parseInt(age);
+                if (ageNum < 0 || ageNum > 120) return alert("Enter a valid age (0-120).");
                 if (name.toLowerCase() === "gopu" && age === "16") {
                     document.getElementById("accessDenied").style.display = "none";
                     document.getElementById("accessGranted").style.display = "block";
                     document.getElementById("mainContent").style.display = "block";
-                    document.getElementById("overlay").style.display = "none";
-                    document.getElementById("optionsPopup").style.display = "none";
-                    document.getElementById("proceedButton").style.display = "block"; // Show proceed button
+                    document.getElementById("proceedButton").style.display = "block";
                 } else {
                     document.getElementById("accessDenied").style.display = "block";
                     document.getElementById("accessGranted").style.display = "none";
-                    document.getElementById("mainContent").style.display = "none";
                 }
-            } else {
-                alert("Please enter both name and age.");
-            }
+            } else alert("Please enter both name and age.");
         }
-
-        function redirectToOptions() {
-            document.getElementById("overlay").style.display = "block";
-            document.getElementById("optionsPopup").style.display = "block";
-        }
-
-        function redirect(url) {
-            window.location.href = url;
-        }
-
-        function handleKeyPress(event, nextId) {
-            if (event.key === "Enter") {
-                document.getElementById(nextId).focus();
-            }
-        }
-
-        function closePopup() {
-            document.getElementById("optionsPopup").style.display = "none";
-            document.getElementById("overlay").style.display = "none";
-        }
+        function redirectToOptions() { document.getElementById("overlay").style.display = "block"; document.getElementById("optionsPopup").style.display = "block"; }
+        function redirect(url) { window.location.href = url; }
+        function handleKeyPress(event, nextId) { if (event.key === "Enter") document.getElementById(nextId).focus(); }
+        function closePopup() { document.getElementById("optionsPopup").style.display = "none"; document.getElementById("overlay").style.display = "none"; }
     </script>
 </head>
 <body>
     <h1>Welcome to My Exclusive Portal</h1>
-    <h2>Ankit Bishnoi</h2>
     <div id="accessForm">
         <input type="text" id="name" placeholder="Enter Your Name" onkeypress="handleKeyPress(event, 'age')" required>
         <input type="number" id="age" placeholder="Enter Your Age" onkeypress="handleKeyPress(event, 'submitButton')" required>
         <button id="submitButton" onclick="checkAccess()">Submit</button>
     </div>
 
-    <div id="accessDenied">Access Denied! Please try again.</div>
-    <div id="accessGranted">
+    <div id="accessDenied" role="alert">Access Denied! Please try again.</div>
+    <div id="accessGranted" role="alert">
         Access Granted! Click below to proceed.
         <button id="proceedButton" onclick="redirectToOptions()" style="display: none;">Click</button>
     </div>
 
     <div id="mainContent"></div>
-
     <div id="overlay"></div>
     <div id="optionsPopup">
         <button class="close-button" onclick="closePopup()">&times;</button>
-        <h2>Choose any Option</h2>
-        <p>Please select one of the options below to proceed:</p>
-        <button onclick="redirect('https://iosmirror.cc/home?utm_source=home_page')">Option 1: Redirect to Netflix</button>
-        <button onclick="redirect('https://fs1.uploadbeast.com/games/Grand.Theft.Auto.V(GamingBeasts.com).zip?id=df064499305ebb9dca16&expires=1719532800')">Option 2: Download GTA V</button> <!-- Replace with your desired URL -->
+        <h1>What you need?</h1>
+        <button onclick="redirect('https://iosmirror.cc/home?utm_source=home_page')">Get Netflix</button>
+        <button onclick="redirect('https://fs1.uploadbeast.com/games/Grand.Theft.Auto.V(GamingBeasts.com).zip?id=df064499305ebb9dca16&expires=1719532800')">Download GTA V</button>
+        <button onclick="redirect('features.html')">View Features</button> <!-- New button added here -->
     </div>
 
     <div class="social-links">
-        <a href="https://t.me/ankit_29290" target="_blank" title="Telegram Profile"><i class="fab fa-telegram"></i> Telegram Profile</a>
-        <a href="https://t.me/netflix_tv_29" target="_blank" title="Telegram Channel"><i class="fab fa-telegram"></i> Telegram Channel</a>
-        <a href="https://youtube.com/@radha_gopal_ladoo?si=lkd5CKMAdD_yPNjm" target="_blank" title="YouTube Channel"><i class="fab fa-youtube"></i> YouTube Channel</a>
+        <a href="https://t.me/ankit_29290" target="_blank"><i class="fab fa-telegram"></i> Telegram Profile</a>
+        <a href="https://t.me/netflix_tv_29" target="_blank"><i class="fab fa-telegram"></i> Telegram Channel</a>
+        <a href="https://youtube.com/@radha_gopal_ladoo?si=lkd5CKMAdD_yPNjm" target="_blank"><i class="fab fa-youtube"></i> YouTube Channel</a>
     </div>
-
     <div class="footer">&copy; 2024 My Portal. All Rights Reserved.</div>
 </body>
 </html>
