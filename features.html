@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attractive Verification Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: linear-gradient(to right, #ff7e5f, #feb47b);
+            color: white;
+        }
+        #verificationBox {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        #popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            z-index: 1000;
+        }
+        button {
+            background-color: #ff7676;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 5px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #ff5252;
+        }
+        #overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 900;
+        }
+    </style>
+</head>
+<body>
+
+<div id="verificationBox">
+    <h2>Please Enter Password</h2>
+    <input type="password" id="passwordInput" placeholder="Password" />
+    <button onclick="verifyPassword()">Submit</button>
+</div>
+
+<div id="overlay"></div>
+<div id="popup">
+    <h2>Access Granted!</h2>
+    <button>Button 1</button>
+    <button>Button 2</button>
+    <button>Button 3</button>
+    <button>Button 4</button>
+</div>
+
+<script>
+    function verifyPassword() {
+        const password = document.getElementById('passwordInput').value;
+        if (password === 'Anshul66') {
+            document.getElementById('verificationBox').style.display = 'none';
+            document.getElementById('overlay').style.display = 'block';
+            document.getElementById('popup').style.display = 'block';
+        } else {
+            alert('Incorrect password, please try again.');
+        }
+    }
+
+    // You can add functionality for the buttons in the popup later
+</script>
+
+</body>
+</html>
