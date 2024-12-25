@@ -141,7 +141,7 @@
             if (name && age) {
                 const ageNum = parseInt(age);
                 if (ageNum < 0 || ageNum > 120) return alert("Enter a valid age (0-120).");
-                if (name.toLowerCase() === "gopu" && age === "16") {
+                if (name.toLowerCase() === "Admin" && age === "16") {
                     document.getElementById("accessDenied").style.display = "none";
                     document.getElementById("accessGranted").style.display = "block";
                     document.getElementById("mainContent").style.display = "block";
@@ -158,7 +158,7 @@
         function closePopup() { document.getElementById("optionsPopup").style.display = "none"; document.getElementById("overlay").style.display = "none"; }
         
         // Set your background image URL here
-        const backgroundImageUrl = 'YOUR_IMAGE_URL_HERE'; // Change this to your image URL
+        const backgroundImageUrl = 'https://i.pinimg.com/1200x/55/17/b9/5517b9148dc79add6a3f7279e59f0d2f.jpg'; // Change this to your image URL
         document.body.style.background = `url('${backgroundImageUrl}') center/cover no-repeat`;
     </script>
 </head>
